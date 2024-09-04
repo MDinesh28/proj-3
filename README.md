@@ -1,5 +1,5 @@
-# Fully Automated CI/CD Pipeline with Ansible, Jenkins, and AWS CodePipeline
-This project demonstrates a comprehensive CI/CD pipeline that integrates Ansible with Jenkins and AWS CodePipeline to automate the build, test, and deployment of an application across multiple environments, with a focus on Tomcat and Apache setup.
+# Fully Automated CI/CD Pipeline with Ansible, Jenkins deploy in Tomcat.
+This project demonstrates a comprehensive CI/CD pipeline that integrates Ansible with Jenkins to automate the build, test, and deployment of an application across multiple environments, with a focus on Tomcat and Apache setup.
 
 ## Project Overview
 
