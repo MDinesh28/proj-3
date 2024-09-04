@@ -72,8 +72,9 @@ Ex 1: Ungrouped hosts, specify before any group headers.
 
 ### Tomcat Setup on Worker Nodes: 
   Automated setup of Tomcat using Ansible.
-    [Tomcat installtion](context.xml,tomcat-users.xml,tomcat.yml)
-    [installation](screenshots/tomcat.png)
+  [Tomcat installtion](context.xml,tomcat-users.xml,tomcat.yml)
+
+  [installation](screenshots/tomcat.png)
 
 ### Jenkins & Ansible Integration: 
   Smooth integration for automated deployments.
@@ -84,4 +85,5 @@ Ex 1: Ungrouped hosts, specify before any group headers.
 
   ### application deployment on worker nodes
   [worker node1](screenshots/slave1.png)
+
   [worker node2](screenshots/slave2.png)
