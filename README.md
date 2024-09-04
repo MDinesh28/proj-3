@@ -7,7 +7,7 @@ This project demonstrates a comprehensive CI/CD pipeline that integrates Ansible
   Using Jenkins and Ansible, the pipeline sets up Tomcat on worker nodes and configures Apache to serve the application.
   
   ### Streamline CI/CD Processes: 
-  AWS CodePipeline automates the entire application lifecycle, from code integration to production deployment.  
+  Jenkins Pipeline automates the entire application lifecycle, from code integration to production deployment.  
   
   ### Parameterized Deployment: 
   The pipeline is parameterized to support dynamic deployments across dev and test environments.
@@ -19,15 +19,20 @@ This project demonstrates a comprehensive CI/CD pipeline that integrates Ansible
 
   ### Tomcat Setup on Worker Nodes: 
   Automated setup of Tomcat using Ansible.
+    [Tomcat installtion](context.xml,tomcat-users.xml,tomcat.yml)
   
   ### Jenkins & Ansible Integration: 
   Smooth integration for automated deployments.
+    [pipeline](pipeline)
   
   ### Parameterized Pipeline: 
   AWS CodePipeline is configured with parameterized values for flexibility across dev and test environments.
+    [pipeline](pipeline)
   
   ### Apache Integration: 
   Automated configuration of Apache web server using Ansible.
+    [deploy file](deploy.yml)
+
   
 ## How It Works
 
@@ -40,9 +45,37 @@ This project demonstrates a comprehensive CI/CD pipeline that integrates Ansible
   
 ## Getting Started
 
-  ### Prerequisites
-  Jenkins installed and configured
+  ### Jenkins installed and configured
+  [jenkins](jenkins.sh)
   
-  Ansible installed and configured
+  ### Ansible installed and configured
+    amazon-linux-extras install ansible2 -y
+
+    yum install python3 python-pip python-devel -y
+
+    vim /etc/ansible/hosts
+Ex 1: Ungrouped hosts, specify before any group headers.
+
+[dev]
+172.31.20.40
+172.31.21.25
+
+[test]
+172.31.31.77
+172.31.22.114
+
+    ssh-keygen            -- > enter 4 times 
+    ssh-copy-id root@    private ip of dev-1
+### To check worker node connection with ansible server.
+     ansible -m ping all 
+
+### Tomcat Setup on Worker Nodes: 
+  Automated setup of Tomcat using Ansible.
+    [Tomcat installtion](context.xml,tomcat-users.xml,tomcat.yml)
+
+### Jenkins & Ansible Integration: 
+  Smooth integration for automated deployments.
+    [pipeline](pipeline)
   
-  AWS account with CodePipeline, S3, and EC2 services set up
+  ### Parameterized Pipeline: 
+  AWS CodePipeline is configured with parameterized values for flexibility across dev and test environments.
