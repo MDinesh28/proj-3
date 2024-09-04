@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+    stages {
+        stage('checkout') {
+            steps {
+                git 'https://github.com/MDinesh28/jenkins-java-project.git'
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+        stage('artifact') {
+            steps {
+                sh 'mvn package'
+            }
+        }
+        stage('nexus upload') {
+            steps {
+                echo "artifact is uploaded to nexus"
+            }
+        }
+        stage('deploy') {
+            steps {
+                ansiblePlaybook credentialsId: '9b7e8f33-c100-43d8-9606-d3e55d966c20', installation: 'Ansible', inventory: '/etc/ansible/hosts', limit: '$server', playbook: '/etc/ansible/deploy.yml', vaultTmpPath: ''            }
+        }
+        
+    }
+    
+}
